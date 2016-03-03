@@ -1,0 +1,3 @@
+myrMasterPort=3306
+myrSlave1Port=3307
+
