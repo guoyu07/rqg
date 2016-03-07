@@ -1,5 +1,10 @@
 #! /bin/bash
 #
+# resetEnvRep.sh applies only when MYRRUNMODE is set to 1
+   if [ "$MYRRUNMODE" != "1" ]; then
+      exit
+   fi   
+#
 # setup directories
    buildName=$1
    if [ "$buildName" = "" ]; then

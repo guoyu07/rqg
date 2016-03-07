@@ -15,8 +15,8 @@
 # wait for slave to finish replication, waiting for a max of 60 seconds
   $MYRHOME/common/sh/waitForReplicationDone.sh reptest 60
 #
-  $MYRCLIENTDIR/mysqldump -u root --port=$MYRMASTERPORT --socket=/tmp/mysql.sock $testDB > /tmp/dumpMaster.original.sql
-  $MYRCLIENTDIR/mysqldump -u root --port=$MYRSLAVE1PORT --socket=/tmp/repSlave1.sock $testDB > /tmp/dumpSlave1.original.sql
+  $MYRCLIENTDIR/mysqldump -u root --port=$MYRMASTERPORT --socket=$MYRMASTERSOCKET $testDB > /tmp/dumpMaster.original.sql
+  $MYRCLIENTDIR/mysqldump -u root --port=$MYRSLAVE1PORT --socket=$MYRSLAVE1SOCKET $testDB > /tmp/dumpSlave1.original.sql
 #
 # engine in the create table is different, as well as the auto increment number
 # skip the last line of the create table command in diff

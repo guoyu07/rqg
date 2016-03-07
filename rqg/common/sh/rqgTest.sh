@@ -31,7 +31,7 @@
    for i in $(seq 1 $numIters)
    do
       echo iteration=$i  `date` >> $logFileName
-      perl gentest.pl --dsn=dbi:mysql:host=localhost:port=$MYRMASTERPORT:user=root:database=$testDB:mysql_socket=/tmp/mysql.sock --gendata=conf/$testName/$dataFileName --grammar=conf/$testName/$grammerFileName --threads=$numThreads --queries=$numQueries --sqltrace>> $logFileName 2>&1 
+      perl gentest.pl --dsn=dbi:mysql:host=localhost:port=$MYRMASTERPORT:user=root:database=$testDB:mysql_socket=$MYRMASTERSOCKET --gendata=conf/$testName/$dataFileName --grammar=conf/$testName/$grammerFileName --threads=$numThreads --queries=$numQueries --sqltrace>> $logFileName 2>&1 
    done
 #
 # check rqg test status
