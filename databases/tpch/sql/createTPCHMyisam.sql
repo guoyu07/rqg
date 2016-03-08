@@ -5,7 +5,7 @@ create table nation (
         n_comment varchar (152),
         id int not null auto_increment,
         primary key (id)
-) engine=Rocksdb
+) engine=myisam
 ;
 
 create table region (
@@ -14,7 +14,7 @@ create table region (
         r_comment varchar (152),
         id int not null auto_increment,
         primary key (id)
-) engine=Rocksdb
+) engine=myisam
 ;
 
 create table customer (
@@ -28,7 +28,7 @@ create table customer (
         c_comment varchar (117),
         id int not null auto_increment,
         primary key (id)
-) engine=Rocksdb
+) engine=myisam
 ;
 
 create table orders (
@@ -43,7 +43,7 @@ create table orders (
         o_comment varchar (79),
         id int not null auto_increment,
         primary key (id)
-) engine=Rocksdb
+) engine=myisam
 ;
 
 create table supplier (
@@ -56,7 +56,7 @@ create table supplier (
         s_comment varchar (101),
         id int not null auto_increment,
         primary key (id)
-) engine=Rocksdb
+) engine=myisam
 ;
 
 create table partsupp (
@@ -67,7 +67,7 @@ create table partsupp (
         ps_comment varchar (199),
         id int not null auto_increment,
         primary key (id)
-) engine=Rocksdb
+) engine=myisam
 ;
 
 create table part (
@@ -82,7 +82,7 @@ create table part (
         p_comment varchar (23),
         id int not null auto_increment,
         primary key (id)
-) engine=Rocksdb
+) engine=myisam
 ;
 
 create table lineitem (
@@ -104,5 +104,5 @@ create table lineitem (
         l_comment varchar (44),
         id int not null auto_increment,
         primary key (id)
-) engine=Rocksdb
+) engine=myisam
 ;

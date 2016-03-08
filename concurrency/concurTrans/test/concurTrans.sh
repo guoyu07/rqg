@@ -18,7 +18,7 @@
    rm -rf sesspids.txt
 #
 # Create TPCH tables and load 1gb data
-   $MYRHOME/common/sh/createAndLoadTPCH1g.sh $testDB
+   $MYRHOME/databases/tpch/sh/buildTPCHDBMYR.sh $testDB 1g
 # Initialize o_custkey column value to 2000000
    $MYRCLIENT test -e 'update orders set o_custkey = 20000;'
 #

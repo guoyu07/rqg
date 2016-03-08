@@ -16,8 +16,9 @@ function initTest() {
 # --------------------------------------------------------------- #
 function prepareTable() {
 #   echo Creating lineitem table and loading $tableRowCnt rows of data......
-   head -n $tableRowCnt $MYRHOME/data/tpch/1g/lineitem.tbl > /tmp/lineitem.tbl
-   $MYRCLIENT $testDB -vvv -f < $MYRHOME/concurrency/concurWriteI124/sql/createTableLoadData.sql > createTableLoadData.log 2>&1 
+   $MYRCLIENT $testDB -vvv -f < $MYRHOME/databases/tpch/sql/createLineitemMyrocks.sql > createTable.log 2>&1 
+   head -n $tableRowCnt $MYRHOME/data/source/tpch/1g/lineitem.tbl > /tmp/lineitem.tbl
+   $MYRCLIENT $testDB -vvv -f < $MYRHOME/concurrency/concurWriteI124/sql/loadData.sql > loadoadData.log 2>&1 
 }
 # --------------------------------------------------------------- #
 # Function to execute a test
@@ -57,7 +58,7 @@ function verifyResults {
 # echo affectedCnt=$affectRowCnt successCnt=$successCnt  incrVal=$incrVal
 #
 # echo actvals=$actVals expVals=$expVals
-   if [ $actVals -eq $expVals ] ; then
+   if [ "$actVals" = "$expVals" ] ; then
       status=Passed
    else
       status=Failed

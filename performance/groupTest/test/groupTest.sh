@@ -38,7 +38,7 @@
 #
 # Create TPCH tables and load 1gb data if specified
    if [ "$loadDBFlag" = 1 ]; then
-      $MYRHOME/common/sh/createAndLoadTPCH1g.sh $testDB
+      $MYRHOME/databases/tpch/sh/buildTPCHDBMYR.sh $testDB 1g
    fi
 #
 # Execute requested group test
