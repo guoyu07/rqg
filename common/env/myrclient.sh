@@ -43,7 +43,7 @@
       MYRSlave1Socket=$slave1Socket
    fi
 #
-   if [ "$mysqlClientDir" != "" ]; then
+   if [ $MYRRunMode = 2 ] && [ "$mysqlClientDir" != "" ]; then
       MYRclientDir=$mysqlClientDir
    fi
 #

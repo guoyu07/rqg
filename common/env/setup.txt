@@ -11,14 +11,14 @@
 # 4. Executes test
 # 5. If replication is used, compare databases using mysqldump
 #
-# MYRRunMode=2
+# MYRRunMode=1
 # This mode is more suitable when MyRocks has been deployed (ie: QA or regression environments)
 # The test framework will run requested tests on an existing database server environment
 # The test framework performs the following tasks:
 # 1. Executes test
 # 2. If replication is used, compare databases using mysqldump
 #
-myrRunMode=2
+myrRunMode=1
 
 # Ports used by master and slave nodes in a MySQL replication setup
 # If replication is not used, the master port is used
