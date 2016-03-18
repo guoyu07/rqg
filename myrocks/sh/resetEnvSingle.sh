@@ -1,7 +1,7 @@
 #! /bin/bash
 #
-# resetEnvSingle.sh applies only when MYRRUNMODE is set to 1
-   if [ "$MYRRUNMODE" = "1" ]; then
+# resetEnvSingle.sh does not apply when MYRRUNMODE is set to 2, running on existing stack.
+   if [ "$MYRRUNMODE" != "2" ]; then
 #
 # setup directories
       buildName=$1
@@ -28,6 +28,5 @@
       sleep 3
 #
       ps -ef |grep mysqld
-#
    fi
 #

@@ -1,7 +1,7 @@
 #! /bin/bash
 #
-# resetEnvRep.sh applies only when MYRRUNMODE is set to 1
-   if [ "$MYRRUNMODE" = "1" ]; then
+# resetEnvRep.sh does not apply when MYRRUNMODE is set to 2, running on existing stack.
+   if [ "$MYRRUNMODE" != "2" ]; then
 #
 # setup directories
       buildName=$1
@@ -34,3 +34,4 @@
       ps -ef |grep mysqld
 #
    fi
+#   
