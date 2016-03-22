@@ -16,21 +16,23 @@
 # Execute the scripts in 8 sessions, one for each table
 # Repeat the test for numIter times
 #
-   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test update commit 1
-   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test update commiteach 1
-   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test update rollback 1
-   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test update rollbackeach 1
-   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test update default 1
+   numIter=5
+#   
+   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test update commit $numIter
+   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test update commiteach $numIter
+   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test update rollback $numIter
+   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test update rollbackeach $numIter
+   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test update default $numIter
 #
-   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test delete commit 1
-   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test delete commiteach 1
-   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test delete rollback 1
-   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test delete rollbackeach 1
-   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test delete default 1
+   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test delete commit $numIter
+   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test delete commiteach $numIter
+   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test delete rollback $numIter
+   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test delete rollbackeach $numIter
+   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test delete default $numIter
 #
-   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test ldi commit 1
-   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test ldi commiteach 1
-   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test ldi rollback 1
-   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test ldi rollbackeach 1
-   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test ldi default 1
+   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test ldi commit $numIter
+   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test ldi commiteach $numIter
+   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test ldi rollback $numIter
+   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test ldi rollbackeach $numIter
+   $MYRHOME/concurrency/concurrentDML/test/DMLTest.sh mytest test ldi default $numIter
 #
