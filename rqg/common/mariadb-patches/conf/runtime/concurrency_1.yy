@@ -796,13 +796,17 @@ savepoint_id:
 set_isolation_level:
 	SET SESSION TX_ISOLATION = TRIM(' isolation_level ');
 
+#isolation_level:
+#	READ-UNCOMMITTED |
+#	READ-COMMITTED   |
+#	REPEATABLE-READ  |
+#	SERIALIZABLE     ;
+
+# MyRocks supports only READ-COMMITTED AND REPEATABLE-READ isolation levels
 isolation_level:
-	READ-UNCOMMITTED |
 	READ-COMMITTED   |
-	REPEATABLE-READ  |
-	SERIALIZABLE     ;
-
-
+	REPEATABLE-READ  ;
+	
 start_transaction:
 	START TRANSACTION with_consistent_snapshot ;
 with_consistent_snapshot:

@@ -1,3 +1,4 @@
+drop table if exists nation;
 create table nation (
         n_nationkey int,
         n_name char (25),
@@ -8,6 +9,7 @@ create table nation (
 ) engine=myisam
 ;
 
+drop table if exists region;
 create table region (
         r_regionkey int,
         r_name char (25),
@@ -17,6 +19,7 @@ create table region (
 ) engine=myisam
 ;
 
+drop table if exists customer;
 create table customer (
         c_custkey int,
         c_name varchar (25),
@@ -31,6 +34,7 @@ create table customer (
 ) engine=myisam
 ;
 
+drop table if exists orders;
 create table orders (
         o_orderkey int,
         o_custkey int,
@@ -46,6 +50,7 @@ create table orders (
 ) engine=myisam
 ;
 
+drop table if exists supplier;
 create table supplier (
         s_suppkey int,
         s_name char (25),
@@ -59,6 +64,7 @@ create table supplier (
 ) engine=myisam
 ;
 
+drop table if exists partsupp;
 create table partsupp (
         ps_partkey int,
         ps_suppkey int,
@@ -70,6 +76,7 @@ create table partsupp (
 ) engine=myisam
 ;
 
+drop table if exists part;
 create table part (
         p_partkey int,
         p_name varchar (55),
@@ -85,6 +92,7 @@ create table part (
 ) engine=myisam
 ;
 
+drop table if exists lineitem;
 create table lineitem (
         l_orderkey int,
         l_partkey int,

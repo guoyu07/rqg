@@ -8,6 +8,7 @@
 #
 =Y=	concurrency		concurDDL
 =Y=	concurrency		blockTrans
+=Y= concurrency		concurrentDML
 =Y=	concurrency		concurTrans
 =Y=	concurrency		concurWriteI124
 #
