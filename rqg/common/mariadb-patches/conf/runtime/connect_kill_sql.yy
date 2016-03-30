@@ -1299,7 +1299,7 @@ digit_or_null:
 	NULL ;
 
 engine:
-	MEMORY | MyISAM | RocksDB ;
+	MEMORY | MyISAM ;
 
 equal:
 	| = ;
