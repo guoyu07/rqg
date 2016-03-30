@@ -1,7 +1,7 @@
 #!/bin/bash
 #
    if [ "$#" -ne 6 ]; then
-      echo "Usage: $0 numIterations testName dataFileName grammerFileName numThreads numQueries"
+      echo "Usage: $0 numIterations testName dataFileName grammerFileName numThreads numQueries repBuildName"
       exit 1
    fi
 #
@@ -10,12 +10,10 @@
    dataFileName=$3
    grammerFileName=$4
    numThreads=$5
-   numQueries=$6
+   numQueries=$6   
 #
-# Always run Random Query Generator tests in the replication stack and use the test database
-   MYRBUILD=reptest
+   MYRBUILD=setup
    source $MYRHOME/common/env/myrclient.sh
-      
    testDB=test
 # setup test directory and log files
    testDir=~/tests/rqg/$testName/$dataFileName.$grammerFileName

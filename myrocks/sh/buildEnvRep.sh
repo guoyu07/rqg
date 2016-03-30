@@ -24,7 +24,7 @@
    mkdir data2
 #
 # Copy cnf files for both master and slave nodes
-   cp $MYRHOME/myrocks/cnf/rep*.cnf .
+   cp $MYRHOME/myrocks/cnf/$buildName*.cnf .
 #
 # Copy default database directory, start servers, and sync replication 
    $MYRHOME/myrocks/sh/resetEnvRep.sh $buildName

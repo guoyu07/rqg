@@ -4,6 +4,22 @@
       exit
    fi
 #
+# In the setup.txt file, repBuildName can be used to specify the name of the replication stack to use
+# reptest: MyRocks to InnoDB replication
+# idbreptest: InnoDB to InnoDB replication
+# User can add other replication configurations and reference them by name
+# Instead setting a specify build name, the main script can specify "setup" and
+# the actual will be set build name automatically
+# By default, reptest is used
+#       
+   if [ "$MYRBUILD" = "setup" ]; then
+      MYRBuildName=reptest
+      repBuildName=`cat $MYRHOME/common/env/setup.txt|grep repBuildName|awk -F"=" '{print $2}'`
+      if [ "$repBuildName" != "" ]; then
+         MYRBuildName=$repBuildName
+      fi
+      export MYRBUILD=$MYRBuildName
+   fi
 # Set some default values
 #
    MYRRunMode=1

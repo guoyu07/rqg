@@ -22,11 +22,11 @@
 #
 # start master server
       cd $testDir/mysql-5.6/sql
-      ./mysqld --defaults-file=$testDir/reptestMaster.cnf --rocksdb_strict_collation_exceptions=.* &
+      ./mysqld --defaults-file=$testDir/"$buildName"Master.cnf --rocksdb_strict_collation_exceptions=.* &
       sleep 5
 #
 # start slave server
-      ./mysqld --defaults-file=$testDir/reptestSlave1.cnf --rocksdb_strict_collation_exceptions=.* &
+      ./mysqld --defaults-file=$testDir/"$buildName"Slave1.cnf --rocksdb_strict_collation_exceptions=.* &
 #
       cat /proc/`pidof -s mysqld`/limits|egrep '(Limit|core)'
    fi
