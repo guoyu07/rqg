@@ -4,7 +4,6 @@ port=3306
 server-id = 1
 port = 3306
 log_bin = /home/myrocks/builds/reptest/mysql-bin.log
-binlog_do_db = test
 binlog-format=row
 datadir=/home/myrocks/builds/reptest/data1/install.db
 socket=/tmp/mysql.sock

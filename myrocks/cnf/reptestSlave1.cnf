@@ -5,7 +5,6 @@ server-id = 2
 port = 3307
 log_bin = /home/myrocks/builds/reptest/mysql-bin.log
 relay-log = /home/myrocks/builds/reptest/mysql-relay-bin.log
-binlog_do_db = test
 binlog-format=row
 datadir=/home/myrocks/builds/reptest/data2/install.db
 socket=/tmp/repSlave1.sock
