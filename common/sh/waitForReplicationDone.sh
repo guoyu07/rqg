@@ -3,20 +3,24 @@
    buildName=$1
    maxTimeout=$2
 #
-   MYRBUILD=reptest
+   MYRBUILD="setup"
    source $MYRHOME/common/env/myrclient.sh
 #
-   testDir=$MYRRELHOME/$buildName
+   testDir=$MYRRELHOME/$MYRBUILD
    timeout=1
    cd $testDir/mysql-5.6/client
-
+#
+# get replication master binlog position
+   ./mysql -uroot --port=$MYRMASTERPORT --socket=$MYRMASTERSOCKET -vvv -e "show master status;" > /tmp/t.txt
+   masterBinlogPos=`cat /tmp/t.txt |grep "mysql-bin"|awk -F" " '{ print $4 }'`
+#
 # Check for slave status every one second
-   echo "" > /tmp/repStatusSlave1.txt
+   rm -f /tmp/repStatusSlave1.txt
    for i in $(seq 1 $maxTimeout); do
-      $testDir/mysql-5.6/client/mysql -uroot --port=$MYRSLAVE1PORT --socket=$MYRSLAVE1SOCKET -vvv -e "show slave status\G;" > /tmp/t.txt
+      ./mysql -uroot --port=$MYRSLAVE1PORT --socket=$MYRSLAVE1SOCKET -vvv -e "show slave status\G;" > /tmp/t.txt
       cat /tmp/t.txt >> /tmp/repStatusSlave1.txt
-      status=`cat /tmp/t.txt|grep "Slave has read all relay log" |wc -l`
-      if [ "$status" -eq 1 ]; then
+      slave1BinlogExecPos=`cat /tmp/t.txt |grep Exec_Master_Log_Pos|awk -F" " '{ print $2 }'`
+      if [ "$masterBinlogPos" = "$slave1BinlogExecPos" ]; then
          timeout=0
          break
       fi
