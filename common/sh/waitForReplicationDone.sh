@@ -26,6 +26,8 @@
       fi
       sleep 1
    done
+# Add 5 extra seconds for replication to complete
+   sleep 5
    exit $timeout
 #
      
