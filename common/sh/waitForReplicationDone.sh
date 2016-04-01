@@ -20,6 +20,7 @@
       ./mysql -uroot --port=$MYRSLAVE1PORT --socket=$MYRSLAVE1SOCKET -vvv -e "show slave status\G;" > /tmp/t.txt
       cat /tmp/t.txt >> /tmp/repStatusSlave1.txt
       slave1BinlogExecPos=`cat /tmp/t.txt |grep Exec_Master_Log_Pos|awk -F" " '{ print $2 }'`
+      echo masterBinlogPos="$masterBinlogPos" slave1BinlogExecPos="$slave1BinlogExecPos" >> /tmp/repStatusSlave1.txt
       if [ "$masterBinlogPos" = "$slave1BinlogExecPos" ]; then
          timeout=0
          break

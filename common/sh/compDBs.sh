@@ -11,7 +11,7 @@
    MYRBUILD=$testBuild
    source $MYRHOME/common/env/myrclient.sh
    rm -f /tmp/dump*
-   waitTime=120
+   waitTime=300
 #
 # wait for slave to finish replication, waiting for a max of 60 seconds
   $MYRHOME/common/sh/waitForReplicationDone.sh reptest $waitTime
