@@ -57,7 +57,7 @@
    else
       status=Failed
    fi
-#      
+#
    echo $dataFileName.$grammerFileName=$status rqgStatus=$rqgStatus repStatus=$repStatus numThreads=$numThreads numQueries=$numQueries>> $testDir/../testStatus.txt
    echo $dataFileName.$grammerFileName=$status rqgStatus=$rqgStatus repStatus=$repStatus numThreads=$numThreads numQueries=$numQueries
 #
