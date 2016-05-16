@@ -11,10 +11,9 @@
    MYRBUILD=$testBuild
    source $MYRHOME/common/env/myrclient.sh
    rm -f /tmp/dump*
-   waitTime=1800
 #
 # wait for slave to finish replication for a maximum number of seconds
-  $MYRHOME/common/sh/waitForReplicationDone.sh reptest $waitTime
+  $MYRHOME/common/sh/waitForReplicationDone.sh reptest
 #
   $MYRCLIENTDIR/mysqldump -u root --port=$MYRMASTERPORT --socket=$MYRMASTERSOCKET --routines --skip-triggers $testDB > /tmp/dumpMaster.original.sql
   $MYRCLIENTDIR/mysqldump -u root --port=$MYRSLAVE1PORT --socket=$MYRSLAVE1SOCKET --routines --skip-triggers $testDB > /tmp/dumpSlave1.original.sql

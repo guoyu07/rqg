@@ -41,3 +41,11 @@ mysqlClientDir=/home/myrocks/builds/reptest/mysql-5.6/client
 # idbreptest: InnoDB to InnoDB replication
 # User can add other replication configurations and reference them by name
 repBuildName=reptest
+
+# Replication takes time to finished.  After tests on the master server is done,
+# we need to wait for certain time.  This variable controls how much time to wait.
+# myrRepWaitTime: not assigned = wait forever, until replication is done.
+#                    This could be an issue in error condition
+#                 0 = no wait time
+#                 n = a numeric value, wait for n seconds
+#myrRepWaitTime=

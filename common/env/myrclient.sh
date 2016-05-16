@@ -28,14 +28,17 @@
    MYRMasterSocket=/tmp/mysql.socks
    MYRSlave1Socket=/tmp/repSlave1.socks
    MYRClientDir=$MYRRELHOME/$MYRBUILD/mysql-5.6/client
+# default wait time for replication to finish to forever
+   MYRRepWaitTime=""
 #
 # Get settings from setup.txt file
    runMode=`cat $MYRHOME/common/env/setup.txt|grep myrRunMode|awk -F"=" '{print $2}'`
-   masterPort=`cat $MYRHOME/common/env/setup.txt|grep myrMasterPort|awk -F"=" '{print $2}'`
-   slave1Port=`cat $MYRHOME/common/env/setup.txt|grep myrSlave1Port|awk -F"=" '{print $2}'`
-   masterSocket=`cat $MYRHOME/common/env/setup.txt|grep myrMasterSocket|awk -F"=" '{print $2}'`
-   slave1Socket=`cat $MYRHOME/common/env/setup.txt|grep myrSlave1Socket|awk -F"=" '{print $2}'`
-   mysqlClientDir=`cat $MYRHOME/common/env/setup.txt|grep mysqlClientDir|awk -F"=" '{print $2}'`
+   masterPort=`cat $MYRHOME/common/env/setup.txt|grep -v "#"|grep myrMasterPort|awk -F"=" '{print $2}'`
+   slave1Port=`cat $MYRHOME/common/env/setup.txt|grep -v "#"|grep myrSlave1Port|awk -F"=" '{print $2}'`
+   masterSocket=`cat $MYRHOME/common/env/setup.txt|grep -v "#"|grep myrMasterSocket|awk -F"=" '{print $2}'`
+   slave1Socket=`cat $MYRHOME/common/env/setup.txt|grep -v "#"|grep myrSlave1Socket|awk -F"=" '{print $2}'`
+   repWaitTime=`cat $MYRHOME/common/env/setup.txt|grep -v "#"|grep myrRepWaitTime|awk -F"=" '{print $2}'`
+   mysqlClientDir=`cat $MYRHOME/common/env/setup.txt|grep -v "#"|grep mysqlClientDir|awk -F"=" '{print $2}'`
 #
 # Use settings in setup.txt file if defined
 #
@@ -60,7 +63,11 @@
    fi
 #
    if [ $MYRRunMode = 2 ] && [ "$mysqlClientDir" != "" ]; then
-      MYRclientDir=$mysqlClientDir
+      MYRClientDir=$mysqlClientDir
+   fi
+#
+   if [ "$repWaitTime" != "" ]; then
+      MYRRepWaitTime=$repWaitTime
    fi
 #
 # Export variables
@@ -71,6 +78,7 @@
    export MYRMASTERSOCKET=$MYRMasterSocket
    export MYRSLAVE1SOCKET=$MYRSlave1Socket
    export MYRCLIENTDIR=$MYRClientDir
+   export MYRREPWAITTIME=$MYRRepWaitTime
 #
    export MYRCLIENT="$MYRCLIENTDIR/mysql -uroot --port=$MYRMASTERPORT --socket=/tmp/mysql.sock"
    export MYRCMASTER="$MYRCLIENTDIR/mysql -uroot --port=$MYRMASTERPORT --socket=/tmp/mysql.sock"
