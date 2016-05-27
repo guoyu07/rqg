@@ -97,4 +97,7 @@ function verifyResults {
 # drop test table
    $MYRCLIENT $testDB -vvv -f < $MYRHOME/concurrency/concurWriteI124/sql/dropTable.sql > dropTable.log 2>&1
 #
+   errCnt=`cat testStatus.txt |grep -i Failed |wc -l`
+   exit $errCnt
+#
 # End of script

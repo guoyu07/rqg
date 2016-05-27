@@ -6,13 +6,13 @@
 #
    dbSize=1m   
 #
-   rm -f $dmlCommand$testMode.*.sql
+   rm -f $dmlCommand$testMode*.sql
 #
    cat $MYRHOME/concurrency/concurrentDML/data/tpchTableList.txt |grep -v "#" |
    while read tableName columnName iter restOfLine; do
       case "$testMode" in
          commit|rollback|commiteach|rollbackeach)
-            echo set autocommit\=0\; >>$dmlCommand$tableName$testMode.sql
+            echo set autocommit\=0\; >>$dmlCommand$testMode$tableName.sql
             ;;
          *)
             ;;
@@ -34,25 +34,25 @@
          val=$(($i*-1))
          case "$dmlCommand" in
             ldi)
-               echo load data infile \'$MYRHOME/data/source/tpch/$dbSize/$tableName.tbl\' into table $tableName fields terminated by \'\|\'\; >>$dmlCommand$tableName$testMode.sql
+               echo load data infile \'$MYRHOME/data/source/tpch/$dbSize/$tableName.tbl\' into table $tableName fields terminated by \'\|\'\; >>$dmlCommand$testMode$tableName.sql
                ;;
             update)
-               echo update $tableName set $columnName=$val\; >>$dmlCommand$tableName$testMode.sql
+               echo update $tableName set $columnName=$val\; >>$dmlCommand$testMode$tableName.sql
                ;;
             delete)
-               echo delete from $tableName\; >>$dmlCommand$tableName$testMode.sql
+               echo delete from $tableName\; >>$dmlCommand$testMode$tableName.sql
                ;;
             *)
-               echo \# SQL command $dmlCommand is not supported by this test. >>$dmlCommand$tableName$testMode.sql
+               echo \# SQL command $dmlCommand is not supported by this test. >>$dmlCommand$testMode$tableName.sql
                ;;
          esac
 # Generate commit or rollback command, if applicable
          case "$testMode" in
             commiteach)
-               echo commit\; >>$dmlCommand$tableName$testMode.sql
+               echo commit\; >>$dmlCommand$testMode$tableName.sql
                ;;
             rollbackeach)
-               echo rollback\; >>$dmlCommand$tableName$testMode.sql
+               echo rollback\; >>$dmlCommand$testMode$tableName.sql
                ;;
             *)
                ;;
@@ -61,10 +61,10 @@
 # Generate commit or rollback at the end of the script, if applicable
       case "$testMode" in
          commit)
-            echo commit\; >>$dmlCommand$tableName$testMode.sql
+            echo commit\; >>$dmlCommand$testMode$tableName.sql
             ;;
          rollback)
-            echo rollback\; >>$dmlCommand$tableName$testMode.sql
+            echo rollback\; >>$dmlCommand$testMode$tableName.sql
              ;;
          *)
             ;;

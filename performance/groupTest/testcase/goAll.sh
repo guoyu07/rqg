@@ -20,4 +20,5 @@
    loadDBFlag=1
 #
    $MYRHOME/performance/groupTest/test/groupTest.sh $testBuild $testDB $grpNum $loadDBFlag
+   exit $?
 #   

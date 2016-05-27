@@ -6,3 +6,5 @@
 # Usage: concurWriteI124.sh testBuild testDB numSessions
 #
    $MYRHOME/concurrency/concurWriteI124/test/concurWriteI124.sh mytest test 5
+   exit $?
+   

@@ -1,7 +1,7 @@
 $tables = {
         rows => [10],
         partitions => [ undef , 'KEY (pk) PARTITIONS 2' ],
-	engines => [ 'Aria', 'MyISAM', 'InnoDB' ]
+        engines => [ 'Aria', 'MyISAM', 'InnoDB' ]
 };
 
 $fields = {

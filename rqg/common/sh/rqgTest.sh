@@ -60,4 +60,9 @@
 #
    echo $dataFileName.$grammerFileName=$status rqgStatus=$rqgStatus repStatus=$repStatus numThreads=$numThreads numQueries=$numQueries>> $testDir/../testStatus.txt
    echo $dataFileName.$grammerFileName=$status rqgStatus=$rqgStatus repStatus=$repStatus numThreads=$numThreads numQueries=$numQueries
+   if [ $status = "Passed" ]; then
+      exit 0
+   else
+      exit 1
+   fi
 #

@@ -52,6 +52,7 @@
 #
    echo blockTrans=$status > testStatus.txt
    exit $errCode
+
 #
 # end of script
 

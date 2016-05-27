@@ -6,3 +6,5 @@
 # Usage: concurDDL.sh testBuild testDB numTables numColumns numSessions
 #
    $MYRHOME/concurrency/concurDDL/test/concurDDL.sh mytest test 5 50 5
+   exit $?
+   

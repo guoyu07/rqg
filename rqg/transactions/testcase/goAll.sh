@@ -4,4 +4,5 @@
 # Additional RQG tests can be added to the list
 #
    $MYRHOME/rqg/transactions/testcase/transactions.sh
+   exit $?
 # end of script

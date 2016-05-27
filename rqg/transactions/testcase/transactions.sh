@@ -11,27 +11,36 @@
    dataFileName=transactions.zz
    grammerFileName=transactions.yy   
    $MYRHOME/rqg/common/sh/rqgTest.sh $numIters $testName $dataFileName $grammerFileName $numThreads $numQueries
+   errCode=`expr $errCode + $?`
 #
    grammerFileName=repeatable_read.yy
    $MYRHOME/rqg/common/sh/rqgTest.sh $numIters $testName $dataFileName $grammerFileName $numThreads $numQueries
+   errCode=`expr $errCode + $?`
 #
    grammerFileName=transaction_durability.yy
    $MYRHOME/rqg/common/sh/rqgTest.sh $numIters $testName $dataFileName $grammerFileName $numThreads $numQueries
+   errCode=`expr $errCode + $?`
 #
    grammerFileName=transactions-flat.yy
    $MYRHOME/rqg/common/sh/rqgTest.sh $numIters $testName $dataFileName $grammerFileName $numThreads $numQueries
+   errCode=`expr $errCode + $?`
 #
    dataFileName=combinations.zz
    grammerFileName=combinations.yy   
    $MYRHOME/rqg/common/sh/rqgTest.sh $numIters $testName $dataFileName $grammerFileName $numThreads $numQueries
+   errCode=`expr $errCode + $?`
 #
    grammerFileName=repeatable_read.yy
    $MYRHOME/rqg/common/sh/rqgTest.sh $numIters $testName $dataFileName $grammerFileName $numThreads $numQueries
+   errCode=`expr $errCode + $?`
 #
    grammerFileName=transaction_durability.yy
    $MYRHOME/rqg/common/sh/rqgTest.sh $numIters $testName $dataFileName $grammerFileName $numThreads $numQueries
+   errCode=`expr $errCode + $?`
 #
    grammerFileName=transactions-flat.yy
    $MYRHOME/rqg/common/sh/rqgTest.sh $numIters $testName $dataFileName $grammerFileName $numThreads $numQueries
+   errCode=`expr $errCode + $?`
 #
+   exit $errCode
 # end of script

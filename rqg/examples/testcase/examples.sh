@@ -12,4 +12,5 @@
    dataFileName=example.zz
    grammerFileName=example.yy   
    $MYRHOME/rqg/common/sh/rqgTest.sh $numIters $testName $dataFileName $grammerFileName $numThreads $numQueries
+   exit $?
 # end of script

@@ -68,7 +68,11 @@
       msg="Test failed due to some of the statements were not executed"
    fi   
    echo $status $msg > testStatus.txt
-   cat testStatus.txt
+   if [ $status = "Passed" ]; then
+      exit 0
+   else
+      exit 1
+   fi 
 #   
 
 
