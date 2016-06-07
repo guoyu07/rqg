@@ -102,7 +102,7 @@ sub next {
 
 	# Suppress complaints "returns its argument for UTF-16 surrogate".
 	# We already know that our UTFs in some grammars are ugly.
-#	no warnings 'surrogate';
+	no warnings;
 
 	my $grammar = $generator->[GENERATOR_GRAMMAR];
 	my $grammar_rules = $grammar->rules();
