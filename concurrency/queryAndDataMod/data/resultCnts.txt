@@ -1,0 +1,11 @@
+Result0	6001215 
+Result1	5996781
+Result2	5998613
+Result3	5999995
+Result4	6003191
+Result5	6000353
+Result6	5995159
+Result7	5993700
+Result8	5997601
+Result9	5999444
+
